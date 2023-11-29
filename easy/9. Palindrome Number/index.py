@@ -28,10 +28,26 @@ Follow up: Could you solve it without converting the integer to a string?
 """
 
 
-def isPalindrome(self, x):
-    """
-    :type x: int
-    :rtype: bool
-    """
-    return x
+def isPalindrome(x):
+    if (x < 0 or x % 10 == 0):
+        return False
+    
+    temp = 0
+    while x > temp:
+        temp = (temp * 10) + (x % 10)
+        x = x // 10
+    
+    return x == temp or x == temp // 10
 
+
+
+
+    # Approach 1 - converting to a string
+    # str_x = str(x)
+    # str_x_reversed = str_x[::-1]
+    # if(str_x == str_x_reversed):
+    #     return True
+    # return False
+
+
+print(isPalindrome(121))
